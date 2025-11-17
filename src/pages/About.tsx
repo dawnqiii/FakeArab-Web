@@ -199,8 +199,8 @@ const About = () => {
       </section>
 
       {/* Footer Section */}
-      <footer className="bg-secondary text-background min-h-screen flex items-center">
-        <div className="container mx-auto px-8 lg:px-12 max-w-7xl">
+      <footer className="bg-secondary text-background py-16 sm:py-20 md:min-h-screen md:flex md:items-center">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-12 max-w-7xl">
           {/* Main Footer Content */}
           <div className="grid md:grid-cols-3 gap-12 md:gap-16 mb-16">
             {/* Place */}

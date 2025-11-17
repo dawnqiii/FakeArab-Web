@@ -4,11 +4,11 @@ const MessengerButton = () => {
       href="https://www.messenger.com/t/108567818620417"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-[9999] w-14 h-14 bg-secondary rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 group"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999] w-12 h-12 sm:w-14 sm:h-14 bg-secondary rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 group"
       aria-label="Chat with us on Messenger"
     >
       <svg
-        className="w-7 h-7 text-primary"
+        className="w-6 h-6 sm:w-7 sm:h-7 text-primary"
         fill="currentColor"
         viewBox="0 0 24 24"
       >

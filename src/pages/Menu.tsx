@@ -29,7 +29,7 @@ const Menu = () => {
       <Navbar />
 
       {/* Hero Section with Big Menu Title */}
-      <section className="bg-secondary pt-24 pb-16 relative overflow-hidden">
+      <section className="bg-secondary pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -43,13 +43,13 @@ const Menu = () => {
           </svg>
         </div>
 
-        <div className="container mx-auto px-8 lg:px-12 relative z-10">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
           <div className="text-center">
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-4 tracking-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-4 tracking-tight">
               MENU
             </h1>
-            <div className="w-32 h-2 bg-primary mx-auto rounded-full"></div>
-            <p className="text-xl md:text-2xl text-white/80 mt-6 max-w-2xl mx-auto">
+            <div className="w-24 sm:w-32 h-2 bg-primary mx-auto rounded-full"></div>
+            <p className="text-lg sm:text-xl md:text-2xl text-white/80 mt-4 sm:mt-6 max-w-2xl mx-auto px-4">
               Discover our authentic shawarma selections
             </p>
           </div>
@@ -57,53 +57,51 @@ const Menu = () => {
       </section>
 
       {/* Menu Categories */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-8 lg:px-12 max-w-7xl">
-          <div className="grid md:grid-cols-3 gap-10">
+      <section className="py-12 sm:py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-12 max-w-7xl">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             {menuCategories.map((category, index) => (
               <div
                 key={index}
-                className="group relative bg-card rounded-3xl overflow-visible shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-border/50 hover:z-50"
+                className="group relative bg-card rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 md:hover:-translate-y-4 border border-border/50"
               >
-                {/* Image Container - Expands on hover */}
-                <div className="relative h-80 overflow-visible cursor-pointer">
-                  <div className="absolute inset-0 transition-all duration-700 ease-out group-hover:scale-[2] group-hover:-translate-y-32 group-hover:z-50">
-                    <img
-                      src={category.image}
-                      alt={category.title}
-                      className="w-full h-full object-cover group-hover:object-contain rounded-t-3xl group-hover:rounded-none group-hover:shadow-2xl transition-all duration-700"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/50 to-transparent group-hover:opacity-0 transition-opacity duration-500 pointer-events-none"></div>
+                {/* Image Container */}
+                <div className="relative h-56 sm:h-64 md:h-80 overflow-hidden cursor-pointer">
+                  <img
+                    src={category.image}
+                    alt={category.title}
+                    className="w-full h-full object-cover rounded-t-2xl sm:rounded-t-3xl transition-transform duration-700 md:group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/50 to-transparent transition-opacity duration-500 pointer-events-none"></div>
 
                   {/* Title Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8 group-hover:opacity-0 transition-opacity duration-300">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
                       {category.title}
                     </h2>
-                    <div className="w-16 h-1 bg-primary rounded-full"></div>
+                    <div className="w-12 sm:w-16 h-1 bg-primary rounded-full"></div>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-8 bg-secondary relative z-10">
-                  <h2 className="text-2xl font-bold text-white mb-3">
+                <div className="p-4 sm:p-6 md:p-8 bg-secondary relative z-10">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">
                     {category.title}
                   </h2>
-                  <p className="text-white/80 text-lg leading-relaxed">
+                  <p className="text-white/80 text-base sm:text-lg leading-relaxed">
                     {category.description}
                   </p>
 
                   {/* Decorative Element */}
-                  <div className="mt-6 flex items-center gap-3">
-                    <div className="w-3 h-3 bg-primary rounded-full"></div>
-                    <div className="w-3 h-3 bg-primary/60 rounded-full"></div>
-                    <div className="w-3 h-3 bg-primary/30 rounded-full"></div>
+                  <div className="mt-4 sm:mt-6 flex items-center gap-2 sm:gap-3">
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-primary rounded-full"></div>
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-primary/60 rounded-full"></div>
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-primary/30 rounded-full"></div>
                   </div>
                 </div>
 
                 {/* Hover Glow Effect */}
-                <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/50 rounded-3xl transition-all duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 border-2 border-primary/0 md:group-hover:border-primary/50 rounded-2xl sm:rounded-3xl transition-all duration-500 pointer-events-none"></div>
               </div>
             ))}
           </div>
@@ -111,12 +109,12 @@ const Menu = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-primary">
-        <div className="container mx-auto px-8 lg:px-12 text-center">
-          <h3 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+      <section className="py-12 sm:py-16 bg-primary">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-12 text-center">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-4">
             Ready to Order?
           </h3>
-          <p className="text-xl text-secondary/80 mb-8 max-w-xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-secondary/80 mb-6 sm:mb-8 max-w-xl mx-auto px-4">
             Visit our store or contact us through Messenger for orders and inquiries
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -124,9 +122,9 @@ const Menu = () => {
               href="https://www.messenger.com/t/108567818620417"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-secondary text-white hover:bg-secondary/90 font-bold px-10 py-4 text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all hover:scale-105 inline-flex items-center gap-3"
+              className="bg-secondary text-white hover:bg-secondary/90 font-bold px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all hover:scale-105 inline-flex items-center gap-2 sm:gap-3"
             >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.908 1.438 5.503 3.686 7.2V22l3.404-1.869c.908.252 1.871.388 2.91.388 5.523 0 10-4.145 10-9.243S17.523 2 12 2zm1.088 12.456l-2.55-2.722-4.98 2.722 5.476-5.813 2.615 2.722 4.915-2.722-5.476 5.813z"/>
               </svg>
               Message Us
@@ -136,8 +134,8 @@ const Menu = () => {
       </section>
 
       {/* Footer Section */}
-      <footer className="bg-secondary text-background min-h-screen flex items-center">
-        <div className="container mx-auto px-8 lg:px-12 max-w-7xl">
+      <footer className="bg-secondary text-background py-16 sm:py-20 md:min-h-screen md:flex md:items-center">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-12 max-w-7xl">
           {/* Main Footer Content */}
           <div className="grid md:grid-cols-3 gap-12 md:gap-16 mb-16">
             {/* Place */}

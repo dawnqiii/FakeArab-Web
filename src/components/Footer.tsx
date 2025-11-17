@@ -2,13 +2,13 @@ import { MapPin, Facebook, Instagram, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary text-background scroll-mt-16 min-h-screen flex items-center">
-      <div className="container mx-auto px-8 lg:px-12 max-w-7xl">
+    <footer className="bg-secondary text-background scroll-mt-16 py-16 sm:py-20 md:min-h-screen md:flex md:items-center">
+      <div className="container mx-auto px-4 sm:px-8 lg:px-12 max-w-7xl w-full">
         {/* Main Footer Content */}
-        <div className="grid md:grid-cols-3 gap-12 md:gap-16 mb-16">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 md:gap-16 mb-12 sm:mb-16">
           {/* Place */}
           <div>
-            <h3 className="text-2xl font-bold mb-8 text-primary">Place</h3>
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-primary">Place</h3>
             <div className="space-y-6">
               <div>
                 <div className="flex items-start gap-3 text-background/90 text-base">
@@ -34,8 +34,8 @@ const Footer = () => {
 
           {/* Join the Royal Court */}
           <div>
-            <h3 className="text-2xl font-bold mb-8 text-primary">Follow Us</h3>
-            <p className="text-background/90 mb-6 text-base leading-relaxed">
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-primary">Follow Us</h3>
+            <p className="text-background/90 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">
               Stay updated with exclusive deals, announcements and new menu items!
             </p>
             <div className="space-y-4">
@@ -78,27 +78,27 @@ const Footer = () => {
           </div>
 
           {/* Royal Hours */}
-          <div>
-            <h3 className="text-2xl font-bold mb-8 text-primary">Hours</h3>
+          <div className="sm:col-span-2 md:col-span-1">
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-primary">Hours</h3>
             <div className="space-y-4">
-              <div className="bg-background/5 rounded-xl p-6 border border-primary/20">
-                <div className="flex items-center justify-between text-background/90">
-                  <span className="font-semibold text-base">Monday - Sunday</span>
-                  <span className="text-primary font-bold text-xl">2:00 PM - 10:00 PM</span>
+              <div className="bg-background/5 rounded-xl p-4 sm:p-6 border border-primary/20">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2 text-background/90">
+                  <span className="font-semibold text-sm sm:text-base">Monday - Sunday</span>
+                  <span className="text-primary font-bold text-lg sm:text-xl">2:00 PM - 10:00 PM</span>
                 </div>
               </div>
-              <p className="text-background/70 text-base italic">Open daily to serve you!</p>
+              <p className="text-background/70 text-sm sm:text-base italic">Open daily to serve you!</p>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-background/20 pt-10">
-          <div className="text-center space-y-4">
-            <p className="text-background/60 text-base">
+        <div className="border-t border-background/20 pt-8 sm:pt-10">
+          <div className="text-center space-y-3 sm:space-y-4">
+            <p className="text-background/60 text-sm sm:text-base">
               © 2025 FAKEARAB. ALL RIGHTS RESERVED.
             </p>
-            <p className="text-background/80 font-medium text-lg leading-relaxed max-w-3xl mx-auto">
+            <p className="text-background/80 font-medium text-base sm:text-lg leading-relaxed max-w-3xl mx-auto px-4">
               This website is focused on FakeArab Shawarma Station Talisay Branch
             </p>
           </div>
