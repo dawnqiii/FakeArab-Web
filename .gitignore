@@ -37,3 +37,4 @@ DOCUMENTATION.md
 *.njsproj
 *.sln
 *.sw?
+.vercel

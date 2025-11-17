@@ -247,7 +247,7 @@ const Menu = () => {
       {/* Full Screen Image Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center p-4 animate-in fade-in duration-300"
+          className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center animate-in fade-in duration-300"
           onClick={() => setSelectedImage(null)}
         >
           {/* Close Button */}
@@ -260,16 +260,13 @@ const Menu = () => {
           </button>
 
           {/* Image */}
-          <div className="relative max-w-6xl w-full max-h-[90vh] flex flex-col items-center">
+          <div className="relative w-full h-full flex flex-col items-center justify-center p-2">
             <img
               src={selectedImage.image}
               alt={selectedImage.title}
-              className="w-full h-auto object-contain rounded-lg shadow-2xl"
+              className="max-w-full max-h-full object-contain"
               onClick={(e) => e.stopPropagation()}
             />
-            <h3 className="text-white text-2xl sm:text-3xl font-bold mt-6 text-center">
-              {selectedImage.title}
-            </h3>
           </div>
         </div>
       )}
