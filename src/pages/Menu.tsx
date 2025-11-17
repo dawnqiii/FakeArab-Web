@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import MessengerButton from '@/components/MessengerButton';
-import { MapPin, Facebook, Instagram, Mail } from 'lucide-react';
+import { MapPin, Facebook, Instagram, Mail, X } from 'lucide-react';
 import beefImage from '@/assets/beef.png';
 import chixImage from '@/assets/chix.jpg';
 import bowlImage from '@/assets/inabowl.jpg';
@@ -24,6 +25,8 @@ const menuCategories = [
 ];
 
 const Menu = () => {
+  const [selectedImage, setSelectedImage] = useState<{ image: string; title: string } | null>(null);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -66,7 +69,10 @@ const Menu = () => {
                 className="group relative bg-card rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 md:hover:-translate-y-4 border border-border/50"
               >
                 {/* Image Container */}
-                <div className="relative h-56 sm:h-64 md:h-80 overflow-hidden cursor-pointer">
+                <div
+                  className="relative h-56 sm:h-64 md:h-80 overflow-hidden cursor-pointer"
+                  onClick={() => setSelectedImage({ image: category.image, title: category.title })}
+                >
                   <img
                     src={category.image}
                     alt={category.title}
@@ -75,7 +81,7 @@ const Menu = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/50 to-transparent transition-opacity duration-500 pointer-events-none"></div>
 
                   {/* Title Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 pointer-events-none">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
                       {category.title}
                     </h2>
@@ -237,6 +243,36 @@ const Menu = () => {
           </div>
         </div>
       </footer>
+
+      {/* Full Screen Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center p-4 animate-in fade-in duration-300"
+          onClick={() => setSelectedImage(null)}
+        >
+          {/* Close Button */}
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 w-10 h-10 sm:w-12 sm:h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors z-10"
+            aria-label="Close"
+          >
+            <X size={24} className="text-white" />
+          </button>
+
+          {/* Image */}
+          <div className="relative max-w-6xl w-full max-h-[90vh] flex flex-col items-center">
+            <img
+              src={selectedImage.image}
+              alt={selectedImage.title}
+              className="w-full h-auto object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <h3 className="text-white text-2xl sm:text-3xl font-bold mt-6 text-center">
+              {selectedImage.title}
+            </h3>
+          </div>
+        </div>
+      )}
 
       <MessengerButton />
     </div>
