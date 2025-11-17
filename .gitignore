@@ -21,6 +21,12 @@ dist-ssr
 nul
 NUL
 
+# Claude Code
+.claude/
+
+# Documentation
+DOCUMENTATION.md
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
