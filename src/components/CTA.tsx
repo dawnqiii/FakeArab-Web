@@ -1,12 +1,8 @@
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const CTA = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const navigate = useNavigate();
 
   return (
     <section className="min-h-screen bg-secondary flex items-center">
@@ -21,14 +17,14 @@ const CTA = () => {
 
           <div className="flex flex-wrap justify-center gap-6">
             <Button
-              onClick={() => scrollToSection('menu')}
+              onClick={() => navigate('/menu')}
               variant="secondary"
               className="bg-primary text-secondary hover:bg-primary/90 font-semibold px-10 py-5 text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105"
             >
               View Menu
             </Button>
             <Button
-              onClick={() => scrollToSection('location')}
+              onClick={() => navigate('/contact')}
               variant="outline"
               className="border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-secondary font-semibold px-10 py-5 text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105"
             >

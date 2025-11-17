@@ -1,20 +1,15 @@
 import { Button } from '@/components/ui/button';
 import shawarma from '@/assets/BP_PHOTOSHOOT.jpg';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 300);
   }, []);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id="home" className="bg-secondary min-h-screen relative overflow-hidden flex items-center scroll-mt-16">
@@ -94,13 +89,13 @@ const Hero = () => {
             {/* Buttons */}
             <div className="pt-2 flex flex-wrap gap-4">
               <Button
-                onClick={() => scrollToSection('menu')}
+                onClick={() => navigate('/menu')}
                 className="bg-primary text-secondary hover:bg-primary/90 font-bold px-8 py-4 text-base shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95"
               >
                 Explore Menu
               </Button>
               <Button
-                onClick={() => scrollToSection('location')}
+                onClick={() => navigate('/contact')}
                 variant="outline"
                 className="border-2 border-white text-secondary bg-white hover:bg-white/90 font-bold px-8 py-4 text-base shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95"
               >
