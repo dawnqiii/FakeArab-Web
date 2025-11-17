@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,6 +8,8 @@ const Navbar = () => {
   const [overYellow, setOverYellow] = useState(false);
   const [overLocation, setOverLocation] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     // Trigger slide-down animation on mount
@@ -15,7 +18,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const navbarHeight = 96; // navbar height (h-24 = 96px)
+      const navbarHeight = 64; // navbar height (h-16 = 64px)
 
       // Check if navbar is over yellow section (Specials section with id="about")
       const aboutSection = document.getElementById('about');
@@ -39,17 +42,42 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+    setIsOpen(false);
+  };
+
+  const goToAbout = () => {
+    navigate('/about');
+    setIsOpen(false);
+  };
+
+  const goToMenu = () => {
+    navigate('/menu');
+    setIsOpen(false);
+  };
+
+  const goToContact = () => {
+    navigate('/contact');
+    setIsOpen(false);
   };
 
   return (
     <nav
       className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
-        isVisible ? 'top-0 opacity-100' : '-top-24 opacity-0'
+        isVisible ? 'top-0 opacity-100' : '-top-16 opacity-0'
       } ${
         overLocation
           ? 'bg-secondary/98 backdrop-blur-sm shadow-lg shadow-primary/20'
@@ -61,7 +89,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
             <button
@@ -75,85 +103,58 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-10">
+          {/* Hamburger Menu Button */}
+          <div className="relative">
             <button
-              onClick={() => scrollToSection('home')}
-              className={`transition-all duration-300 font-bold text-base py-2 relative group ${overLocation ? 'text-white hover:text-primary' : overYellow ? 'text-white hover:text-primary' : scrolled ? 'text-secondary hover:text-primary' : 'text-white hover:text-primary'}`}
+              className={`p-2 transition-colors duration-200 ${overLocation ? 'text-white hover:text-primary' : overYellow ? 'text-secondary hover:text-white' : scrolled ? 'text-secondary hover:text-primary' : 'text-white hover:text-primary'}`}
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
             >
-              <span className="relative z-10">Home</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+              {isOpen ? (
+                <X size={24} strokeWidth={2} />
+              ) : (
+                <Menu size={24} strokeWidth={2} />
+              )}
             </button>
-            <button
-              onClick={() => scrollToSection('menu')}
-              className={`transition-all duration-300 font-bold text-base py-2 relative group ${overLocation ? 'text-white hover:text-primary' : overYellow ? 'text-white hover:text-primary' : scrolled ? 'text-secondary hover:text-primary' : 'text-white hover:text-primary'}`}
-            >
-              <span className="relative z-10">Menu</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className={`transition-all duration-300 font-bold text-base py-2 relative group ${overLocation ? 'text-white hover:text-primary' : overYellow ? 'text-white hover:text-primary' : scrolled ? 'text-secondary hover:text-primary' : 'text-white hover:text-primary'}`}
-            >
-              <span className="relative z-10">About</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
-            </button>
-            <button
-              onClick={() => scrollToSection('location')}
-              className={`transition-all duration-300 font-bold text-base py-2 relative group ${overLocation ? 'text-white hover:text-primary' : overYellow ? 'text-white hover:text-primary' : scrolled ? 'text-secondary hover:text-primary' : 'text-white hover:text-primary'}`}
-            >
-              <span className="relative z-10">Location</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
-            </button>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className={`lg:hidden p-2 transition-colors duration-200 ${overLocation ? 'text-white hover:text-primary' : overYellow ? 'text-secondary hover:text-white' : scrolled ? 'text-secondary hover:text-primary' : 'text-white hover:text-primary'}`}
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? (
-              <X size={28} strokeWidth={2} />
-            ) : (
-              <Menu size={28} strokeWidth={2} />
+            {/* Dropdown Menu */}
+            {isOpen && (
+              <div className="absolute right-0 top-full mt-3 w-56 bg-secondary rounded-2xl shadow-2xl border border-primary/20 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="p-2">
+                  <button
+                    onClick={() => scrollToSection('home')}
+                    className="w-full text-left px-4 py-3.5 text-sm font-bold text-white hover:bg-primary hover:text-secondary transition-all duration-200 rounded-xl flex items-center gap-3 group"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-primary group-hover:bg-secondary transition-colors"></span>
+                    Home
+                  </button>
+                  <button
+                    onClick={goToMenu}
+                    className="w-full text-left px-4 py-3.5 text-sm font-bold text-white hover:bg-primary hover:text-secondary transition-all duration-200 rounded-xl flex items-center gap-3 group"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-primary group-hover:bg-secondary transition-colors"></span>
+                    Menu
+                  </button>
+                  <button
+                    onClick={goToAbout}
+                    className="w-full text-left px-4 py-3.5 text-sm font-bold text-white hover:bg-primary hover:text-secondary transition-all duration-200 rounded-xl flex items-center gap-3 group"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-primary group-hover:bg-secondary transition-colors"></span>
+                    About
+                  </button>
+                  <button
+                    onClick={goToContact}
+                    className="w-full text-left px-4 py-3.5 text-sm font-bold text-white hover:bg-primary hover:text-secondary transition-all duration-200 rounded-xl flex items-center gap-3 group"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-primary group-hover:bg-secondary transition-colors"></span>
+                    Contact
+                  </button>
+                </div>
+              </div>
             )}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-          }`}
-        >
-          <div className={`pb-4 space-y-1 pt-4 ${overLocation ? 'border-t border-white/20' : overYellow ? 'border-t border-white/20' : scrolled ? 'border-t border-secondary/20' : 'border-t border-white/20'}`}>
-            <button
-              onClick={() => scrollToSection('home')}
-              className={`w-full text-left px-4 py-3 transition-all duration-200 font-bold tracking-wide rounded ${overLocation ? 'text-white hover:text-primary hover:bg-white/10' : overYellow ? 'text-white hover:text-primary hover:bg-white/10' : scrolled ? 'text-secondary hover:text-primary hover:bg-primary/10' : 'text-white hover:text-primary hover:bg-white/10'}`}
-            >
-              Home
-            </button>
-            <button
-              onClick={() => scrollToSection('menu')}
-              className={`w-full text-left px-4 py-3 transition-all duration-200 font-bold tracking-wide rounded ${overLocation ? 'text-white hover:text-primary hover:bg-white/10' : overYellow ? 'text-white hover:text-primary hover:bg-white/10' : scrolled ? 'text-secondary hover:text-primary hover:bg-primary/10' : 'text-white hover:text-primary hover:bg-white/10'}`}
-            >
-              Menu
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className={`w-full text-left px-4 py-3 transition-all duration-200 font-bold tracking-wide rounded ${overLocation ? 'text-white hover:text-primary hover:bg-white/10' : overYellow ? 'text-white hover:text-primary hover:bg-white/10' : scrolled ? 'text-secondary hover:text-primary hover:bg-primary/10' : 'text-white hover:text-primary hover:bg-white/10'}`}
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection('location')}
-              className={`w-full text-left px-4 py-3 transition-all duration-200 font-bold tracking-wide rounded ${overLocation ? 'text-white hover:text-primary hover:bg-white/10' : overYellow ? 'text-white hover:text-primary hover:bg-white/10' : scrolled ? 'text-secondary hover:text-primary hover:bg-primary/10' : 'text-white hover:text-primary hover:bg-white/10'}`}
-            >
-              Location
-            </button>
           </div>
         </div>
+
       </div>
     </nav>
   );

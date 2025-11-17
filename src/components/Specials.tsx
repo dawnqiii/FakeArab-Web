@@ -21,28 +21,28 @@ const features = [
 
 const Specials = () => {
   return (
-    <section id="about" className="py-20 md:py-28 bg-primary scroll-mt-24">
-      <div className="container mx-auto px-4 max-w-7xl">
+    <section id="about" className="min-h-screen bg-primary scroll-mt-16 flex items-center">
+      <div className="container mx-auto px-8 lg:px-12 max-w-7xl py-12">
         {/* About Us Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-4 tracking-tight">
             About Us
           </h2>
         </div>
 
         {/* Joy is best when shared Section */}
-        <div className="grid md:grid-cols-2 gap-16 items-center mb-28">
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-xl">
               <span className="text-secondary">Cravings mo?</span><br />
               <span className="text-white">FakeArab Shawarma mo na 'yan!</span>
             </h2>
             <p className="text-base md:text-lg text-secondary/90 leading-relaxed">
-              welcome to FakeArab Shawarma Station a proudly family-owned business that's redefining the shawarma experience in the Philippines. What started as a small food venture quickly grew into a local sensation, going viral for one simple reason: our shawarma is like no other. At FakeArab Shawarma Station, every bite tells a story of family, culture, and a shared passion for food that brings people together. Whether you're craving something new or simply hungry for something huge, we've got your shawarma fix.
+              Welcome to FakeArab Shawarma Station, a proudly family-owned business that's redefining the shawarma experience in the Philippines. What started as a small food venture quickly grew into a local sensation, going viral for one simple reason: our shawarma is like no other.
             </p>
             <p className="text-base md:text-lg text-secondary/90 leading-relaxed">
-              In each market we call home, we serve up our great tasting food with the warm and friendly service we have come to be known for.
+              Every bite tells a story of family, culture, and a shared passion for food that brings people together. We serve up our great tasting food with the warm and friendly service we have come to be known for.
             </p>
           </div>
 
@@ -52,13 +52,13 @@ const Specials = () => {
               <img
                 src={aboutImage}
                 alt="Sharing joy with food"
-                className="w-full h-[450px] md:h-[550px] object-cover transform group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-[400px] md:h-[450px] object-cover transform group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
         </div>
         {/* Section Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6 tracking-tight">
             Our Philosophy
           </h2>
@@ -71,11 +71,11 @@ const Specials = () => {
             return (
               <div
                 key={index}
-                className="bg-background rounded-3xl p-10 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 group"
+                className="bg-background rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 group"
               >
                 {/* Icon */}
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-secondary rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Icon className="text-primary" size={36} />
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Icon className="text-primary" size={32} />
                 </div>
 
                 {/* Title */}
@@ -91,10 +91,10 @@ const Specials = () => {
         </div>
 
         {/* Vision for the Future */}
-        <div className="mt-32 mb-8">
-          <div className="max-w-5xl mx-auto text-center space-y-8">
+        <div className="mt-16 mb-8">
+          <div className="max-w-5xl mx-auto text-center space-y-6">
             <div className="inline-block">
-              <h2 className="text-2xl md:text-3xl font-semibold text-secondary/80 tracking-wide uppercase mb-8">
+              <h2 className="text-2xl md:text-3xl font-semibold text-secondary/80 tracking-wide uppercase mb-6">
                 Vision for the Future
               </h2>
               <div className="h-1 w-24 bg-secondary mx-auto"></div>

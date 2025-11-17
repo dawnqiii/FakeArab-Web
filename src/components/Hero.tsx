@@ -17,7 +17,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="bg-secondary pt-32 md:pt-36 pb-16 md:pb-20 lg:pb-24 relative overflow-hidden min-h-screen flex items-center scroll-mt-24">
+    <section id="home" className="bg-secondary min-h-screen relative overflow-hidden flex items-center scroll-mt-16">
       {/* Subtle Arabic geometric pattern background */}
       <div className="absolute inset-0 opacity-5">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -47,15 +47,15 @@ const Hero = () => {
         </svg>
       </div>
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-8 lg:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className={`space-y-6 md:space-y-8 max-w-2xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
               Taste the <span className="bg-primary text-secondary px-3 py-1 rounded-lg inline-block">Authentic</span> Experience
             </h1>
 
-            <p className="text-lg md:text-xl text-white leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed">
               Premium shawarma crafted with passion and tradition
             </p>
 
@@ -95,14 +95,14 @@ const Hero = () => {
             <div className="pt-2 flex flex-wrap gap-4">
               <Button
                 onClick={() => scrollToSection('menu')}
-                className="bg-primary text-secondary hover:bg-primary/90 font-bold px-8 py-6 text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105 hover:-translate-y-1 active:scale-95"
+                className="bg-primary text-secondary hover:bg-primary/90 font-bold px-8 py-4 text-base shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95"
               >
                 Explore Menu
               </Button>
               <Button
                 onClick={() => scrollToSection('location')}
                 variant="outline"
-                className="border-2 border-white text-secondary bg-white hover:bg-white/90 font-bold px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 hover:-translate-y-1 active:scale-95"
+                className="border-2 border-white text-secondary bg-white hover:bg-white/90 font-bold px-8 py-4 text-base shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95"
               >
                 Find Location
               </Button>
