@@ -84,7 +84,7 @@ const Footer = () => {
               <div className="bg-background/5 rounded-xl p-4 sm:p-6 border border-primary/20">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2 text-background/90">
                   <span className="font-semibold text-sm sm:text-base">Monday - Sunday</span>
-                  <span className="text-primary font-bold text-lg sm:text-xl">2:00 PM - 10:00 PM</span>
+                  <span className="text-primary font-bold text-lg sm:text-xl">2:00 PM - 11:00 PM</span>
                 </div>
               </div>
               <p className="text-background/70 text-sm sm:text-base italic">Open daily to serve you!</p>

@@ -91,7 +91,7 @@ const Contact = () => {
                   <div className="bg-secondary/5 rounded-xl p-3 sm:p-4 border border-primary/20">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
                       <span className="font-semibold text-sm sm:text-base">Monday - Sunday</span>
-                      <span className="text-primary font-bold text-lg sm:text-xl">2:00 PM - 10:00 PM</span>
+                      <span className="text-primary font-bold text-lg sm:text-xl">2:00 PM - 11:00 PM</span>
                     </div>
                   </div>
                   <p className="text-muted-foreground text-sm mt-3 italic">Open daily to serve you!</p>
